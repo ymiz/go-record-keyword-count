@@ -2,9 +2,7 @@ package main
 
 import (
 	"bytes"
-	"encoding/json"
 	pt "github.com/monochromegane/the_platinum_searcher"
-	"io/ioutil"
 	"log"
 	"os"
 	"os/exec"
@@ -43,29 +41,11 @@ func main() {
 		}
 		sum += count
 	}
-	log.Println(sum)
+	record(config, sum)
 
 	err = os.RemoveAll("./temp")
 	if err != nil {
 		log.Fatal("remove dir error ", err.Error())
 	}
 	os.Exit(exitCode)
-}
-
-type Config struct {
-	GitRepositoryUrl string `json:"git_repository_url"`
-	TargetWord       string `json:"target_word"`
-	TargetDirPath    string `json:"target_dir_path"`
-}
-
-func parseConfigJson(fileName string) (*Config, error) {
-	b, err := ioutil.ReadFile(fileName)
-	if err != nil {
-		return nil, err
-	}
-	var c Config
-	if err := json.Unmarshal(b, &c); err != nil {
-		return nil, err
-	}
-	return &c, nil
 }

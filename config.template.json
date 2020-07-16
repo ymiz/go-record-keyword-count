@@ -1,5 +1,9 @@
 {
   "git_repository_url": "",
   "target_word": "",
-  "target_dir_path": ""
+  "target_dir_path": "",
+  "client_id": "",
+  "client_secret": "",
+  "spreadsheet_id": "",
+  "spreadsheet_name": ""
 }
