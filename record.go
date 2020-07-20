@@ -66,7 +66,7 @@ func generateSheetTitles(targetKeyword string) []interface{} {
 }
 
 func generateSheetResult(count int) []interface{} {
-	jst := time.FixedZone("Asia/Tokyo", 96060)
+	jst := time.FixedZone("Asia/Tokyo", 9*60*60)
 	return []interface{}{
 		time.Now().In(jst).Format("2006-01-02 15:04:05"),
 		count,
