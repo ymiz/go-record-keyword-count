@@ -26,6 +26,9 @@ func main() {
 	buf := new(bytes.Buffer)
 	searcher := pt.PlatinumSearcher{Out: buf, Err: os.Stderr}
 	args := []string{config.TargetWord, "./temp/" + config.TargetDirPath, "-i", "--count", "--nocolor"}
+	if config.FileSearchRegexp != "" {
+		args = append(args, "--file-search-regexp="+config.FileSearchRegexp)
+	}
 
 	exitCode := searcher.Run(args)
 	result := buf.String()

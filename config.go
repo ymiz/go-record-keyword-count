@@ -13,6 +13,7 @@ type Config struct {
 	ClientSecret     string `json:"client_secret"`
 	SpreadsheetId    string `json:"spreadsheet_id"`
 	SpreadsheetName  string `json:"spreadsheet_name"`
+	FileSearchRegexp string `json:"file_search_regexp"`
 }
 
 func parseConfigJson(fileName string) (*Config, error) {
